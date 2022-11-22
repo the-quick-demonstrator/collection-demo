@@ -4,6 +4,22 @@ import java.util.*;
 
 public class MainApplication {
     public static void main(String[] args) {
+        genericPersonDemo();
+    }
+    public static void genericPersonDemo() {
+        PersonGeneric person = new PersonGeneric(29, "Leon", "Hunter");
+        person.age.print();
+        person.firstName.print();
+        person.firstName.set("Something else");
+        String lastName = person.lastName.get();
+        int age = person.age.get();
+        person.age.set(5);
+        person.lastName.set("Hello");
+        System.out.println(lastName);
+
+    }
+
+    public static void treeSetDemo(){
         // TREE
             // in comparable order
         PersonInterface person1 = new PersonDefault(27, "Corey", "Hunter");
