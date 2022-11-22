@@ -27,4 +27,12 @@ public class PersonDefault implements PersonInterface {
         return lastName;
     }
 
+    @Override
+    public String toString() {
+        return "PersonDefault{" +
+                "age=" + age +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }

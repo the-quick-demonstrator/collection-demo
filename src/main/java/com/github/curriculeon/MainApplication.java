@@ -3,6 +3,57 @@ package com.github.curriculeon;
 import java.util.*;
 
 public class MainApplication {
+    public static void main(String[] args) {
+        combiningLists();
+    }
+
+    public static void combiningLists() {
+        PersonDefault person4 = new PersonDefault(29, "Leon", "Hunter");
+        PersonDefault person5 = new PersonDefault(28, "Leon", "Hunter");
+        PersonDefault person6 = new PersonDefault(27, "Leon", "Hunter");
+        List<PersonInterface> unmodifiableList = Arrays.asList(person4, person5, person6);
+        List<PersonInterface> arrayList = new ArrayList<>();
+        arrayList.add(person4);
+        arrayList.add(person5);
+        arrayList.add(person6);
+        List<PersonInterface> linkedList = new LinkedList<>();
+        linkedList.add(person4);
+        linkedList.add(person5);
+        linkedList.add(person6);
+        List<PersonInterface> combinedList = new ArrayList<>(unmodifiableList);
+        combinedList.addAll(arrayList);
+        combinedList.addAll(linkedList);
+        System.out.println(combinedList);
+        System.out.println(combinedList.size());
+
+    }
+
+    public static void unmodifiableList() {
+        PersonDefault person4 = new PersonDefault(29, "Leon", "Hunter");
+        PersonDefault person5 = new PersonDefault(28, "Leon", "Hunter");
+        PersonDefault person6 = new PersonDefault(27, "Leon", "Hunter");
+        List<PersonInterface> persons = Arrays.asList(person4, person5, person6);
+        persons.add(new PersonDefault(0, null, null));
+    }
+
+    public static void linkedListExample() {
+        // LinkedList advantage: Faster insertion and removal from center of list
+        // ArrayList advantage: Fast insertion at the end of the list
+        // LINKED
+            // insertion-order
+        PersonDefault person4 = new PersonDefault(29, "Leon", "Hunter");
+        PersonDefault person5 = new PersonDefault(28, "Leon", "Hunter");
+        PersonDefault person6 = new PersonDefault(27, "Leon", "Hunter");
+        List<PersonDefault> personList = new ArrayList<>();
+        personList.add(person4);
+        personList.add(person5);
+        personList.add(person6);
+        System.out.println(personList);
+        // TREE
+            // sorted
+        // HASH
+            // least-memory-intensive
+    }
     public static void removingFromList() {
         PersonDefault person4 = new PersonDefault(29, "Leon", "Hunter");
         PersonDefault person5 = new PersonDefault(28, "Leon", "Hunter");
