@@ -4,7 +4,45 @@ import java.util.*;
 
 public class MainApplication {
     public static void main(String[] args) {
-        genericPersonDemo();
+        pairDemo();
+    }
+
+    public static void pairDemo() {
+        GregorianCalendar birthdate1 = new GregorianCalendar(1993, 4, 23);
+        GregorianCalendar birthdate2 = new GregorianCalendar(1994, 4, 23);
+        GregorianCalendar birthdate3 = new GregorianCalendar(1995, 4, 23);
+
+        PersonCalendar person1 = new PersonCalendar(birthdate1, "Leon", "Hunter");
+        PersonCalendar person2 = new PersonCalendar(birthdate2, "Leon", "Hunter");
+        PersonCalendar person3 = new PersonCalendar(birthdate3, "Leon", "Hunter");
+
+        PersonDefault person4 = new PersonDefault(29, "Leon", "Hunter");
+        PersonDefault person5 = new PersonDefault(28, "Leon", "Hunter");
+        PersonDefault person6 = new PersonDefault(27, "Leon", "Hunter");
+
+        PersonInterface[] people = new PersonInterface[] {
+                person1, person2, person3, person4, person5, person6
+        };
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(PersonInterface person : people) {
+            Integer currentKey = person.getAge();
+            Integer currentValue = map.get(currentKey);
+            if(currentValue == null) {
+                map.put(currentKey, 1);
+            } else {
+                map.put(currentKey, currentValue+1);
+            }
+        }
+
+        Set<Map.Entry<Integer, Integer>> set = map.entrySet();
+        for(Map.Entry<Integer, Integer> entry : set) {
+            int key = entry.getKey();
+            int value = entry.getValue();
+            System.out.println("Key = " + key);
+            System.out.println("Value = " + value);
+        }
+
     }
     public static void genericPersonDemo() {
         PersonGeneric person = new PersonGeneric(29, "Leon", "Hunter");
